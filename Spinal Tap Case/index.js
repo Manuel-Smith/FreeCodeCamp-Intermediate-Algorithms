@@ -1,5 +1,8 @@
 function spinalCase(str) {
-    return str;
-  }
-  
-  spinalCase('This Is Spinal Tap');
+  return str
+    .split(/\s|_|(?=[A-Z])/)
+    .join("-")
+    .toLowerCase();
+}
+
+console.log(spinalCase("AllThe-small Things"))
