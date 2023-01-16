@@ -11,26 +11,32 @@ Check equivalence of Object in collection with Object passed as second parameter
  */
 
 function whatIsInAName(collection, source) {
+  // "What's in a name? that which we call a rose
+  // By any other name would smell as sweet.”
+  // -- by William Shakespeare, Romeo and Juliet
+  const souceKeys = Object.keys(source);
 
-    let sourceKeys = Object.keys(source);
-  
-    return collection.filter(obj=>{
-      for(let i = 0; i < sourceKeys.length; i++){
-          if(obj.hasOwnProperty(sourceKeys[i]) !== -1 && obj[sourceKeys[i]] === source[sourceKeys[i]]){
-              return true;
-          }
+  // filter the collection
+  return collection.filter((obj) => {
+    for (let i = 0; i < souceKeys.length; i++) {
+      if (
+        !obj.hasOwnProperty(souceKeys[i]) ||
+        obj[souceKeys[i]] !== source[souceKeys[i]]
+      ) {
+        return false;
       }
-    })
-  }
-  
-  let result = whatIsInAName(
-    [
-      { first: "Romeo", last: "Montague" },
-      { first: "Mercutio", last: null },
-      { first: "Tybalt", last: "Capulet" },
-    ],
-    { last: "Capulet" }
-  );
-  
-  console.log(result);
-  
+    }
+    return true;
+  });
+}
+
+let result = whatIsInAName(
+  [
+    { first: "Romeo", last: "Montague" },
+    { first: "Mercutio", last: null },
+    { first: "Tybalt", last: "Capulet" },
+  ],
+  { last: "Capulet" }
+);
+
+console.log(result);
