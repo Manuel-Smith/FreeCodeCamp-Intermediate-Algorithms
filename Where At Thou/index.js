@@ -20,7 +20,7 @@ function whatIsInAName(collection, source) {
   return collection.filter((obj) => {
     for (let i = 0; i < souceKeys.length; i++) {
       if (
-        !obj.hasOwnProperty(souceKeys[i]) ||
+        obj.hasOwnProperty(souceKeys[i]) === -1 ||
         obj[souceKeys[i]] !== source[souceKeys[i]]
       ) {
         return false;
