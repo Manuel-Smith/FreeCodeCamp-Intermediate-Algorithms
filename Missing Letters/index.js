@@ -1,6 +1,6 @@
 function fearNotLetter(str) {
     let letterString = "abcdefghijklmnopqrstuvwxyz"
-    
+
     let lowerStrCharPosition = letterString.indexOf(str[0])
     let upperStrCharPosition = letterString.indexOf(str[str.length -1])
     let strLen = upperStrCharPosition - lowerStrCharPosition+1
@@ -11,9 +11,10 @@ function fearNotLetter(str) {
 
     let fullRangeArrLength = fullRangeArr.length;
     for(let i = 0; i < fullRangeArrLength; i++){
-        if()
+        if(str.indexOf(fullRangeArr[i]) == -1){
+            return fullRangeArr[i]
+        }
     }
-    return fullRangeArr;
   }
   
-  console.log(fearNotLetter("bceh"));
+  console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz"));
