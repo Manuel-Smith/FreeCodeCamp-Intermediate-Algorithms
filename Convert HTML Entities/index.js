@@ -1,4 +1,5 @@
 function convertHTML(str) {
+  let testStr = str.split("")
   let newArr = []
   let htmlSymbolDictionary = {
     "&": "&amp;",
@@ -7,16 +8,15 @@ function convertHTML(str) {
     '"': "&quot;",
     "'": "&apos;"
   }
-
-  for(let i = 0; i < str.split(" ").length; i++){
-   if(htmlSymbolDictionary.hasOwnProperty(str.split(" ")[i])){
-      newArr.push(htmlSymbolDictionary[str.split(" ")[i]]);
-    } else {
-      newArr.push(str.split(" ")[i])
+  for(let i = 0; i < testStr.length; i++){
+    if(htmlSymbolDictionary.hasOwnProperty(testStr[i])){
+      newArr.push(htmlSymbolDictionary[testStr[i]])
+    } else{
+      newArr.push(testStr[i])
     }
-
   }
-  return newArr.join(" ")
+
+  return newArr.join("");
   }
   
-  console.log(convertHTML('Stuff in "quotationmarks"'));
+  console.log(convertHTML('Stuff in "quotation marks"'));
