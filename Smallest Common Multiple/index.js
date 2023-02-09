@@ -25,7 +25,7 @@ function smallestCommons(arr) {
     return true;
   }
 
-  for(let i = 1; i <= limitedFactorial; i++){
+  for(let i = minArr; i <= limitedFactorial; i++){
     if(divisibilityTest(i)){
       possibleMultiples.push(i);
       break;
