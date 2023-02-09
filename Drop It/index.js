@@ -1,5 +1,12 @@
 function dropElements(arr, func){
-    return arr;
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++){
+        if(func(arr[i])){
+            newArr.push(...arr.slice(i));
+            break;
+        }
+    }
+    return newArr;
 }
 
-console.log(dropElements([1,2,4], function(n){return n < 3;}));
+console.log(dropElements([0, 1, 0, 1], function(n) {return n === 1;}));
