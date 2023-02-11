@@ -1,3 +1,28 @@
 Steam Roller
 
 Flatten a nested array. You must account for varying levels of nesting.
+
+steamrollerArr([[["a]], [["b"]]]) should return ["a", "b"]
+steamrollerArr([1, [2], [3, [[4]]]]) should return [1, 2, 3, 4]
+steamrollerArr([1, [], [3, [[4]]]]) should return [1, 3, 4]
+steamrollerArr([1, {}, [3, [[4]]]]) should return [1, {}, 3, 4]
+
+Your solution should not usse the Array.prototype.flat() or
+Array.prototype.flatMap() methods
+
+Global variables shold not be used
+
+Logical explanation.
+
+
+Function takes an input array, loops through its elements, and for each element:
+
+If the element is an array, the function calls itself recursively with the element as an
+argument. This step continues until the element is no longer an array.
+
+If the element is not an array, the element is aded to the result array using 
+'result.push(arr[i])'.
+
+The result of the current call is then concatenated with the result of previous calls using 
+'result = result.concat(flattenArray(arr[i]))
+Finally the result  array is returned and it contains all elements of the input arrayflattened into a single dimension.

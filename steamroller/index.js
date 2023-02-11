@@ -1,5 +1,16 @@
-function streamrollArray(arr){
-    return arr;
+function steamrollArray(arr){
+    let resultArray = new Array;
+    let arrLength = arr.length;
+
+
+    for(let i = 0; i < arrLength; i++){
+        if(Array.isArray(arr[i])){
+            resultArray = resultArray.concat(steamrollArray(arr[i]));
+        } else {
+            resultArray.push(arr[i])
+        }
+    }
+    return resultArray;
 }
 
-streamrollArray([1, [2], [3, [[4]]]])
+console.log(steamrollArray([1, {}, [3, [[4]]]]))
